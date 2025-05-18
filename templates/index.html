@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to SQL Injection Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            animation: fadeIn 1.5s ease;
+        }
+        h1 {
+            font-size: 3em;
+            color: #333;
+        }
+        p {
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 1.2em;
+            color: #555;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.2em;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+    <h1>SQL Injection Demo</h1>
+    <p>This is a demo site designed to showcase how SQL Injection vulnerabilities can occur in poorly secured applications.<br>
+    You can try to register or login with special SQL payloads and observe the behavior.</p>
+    <p><strong>Note:</strong> This is a controlled environment. No real data is stored or exposed.</p>
+    <a href="/register">Register</a> | <a href="/login">Login</a>
+</body>
+</html>

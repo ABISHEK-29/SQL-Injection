@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            position: relative;
+        }
+
+        .logout-btn {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            background: #e74c3c;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            background: #c0392b;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 40px;
+        }
+
+        ul {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            list-style-type: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            background: white;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        Welcome to Dashboard
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </div>
+
+    <h2>Registered Users</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user[0] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>SQL Injection Alerts</h2>
+    <table>
+        <tr>
+            <th>Input Text</th>
+            <th>Timestamp</th>
+            <th>IP Address</th>
+        </tr>
+        {% for alert in alerts %}
+        <tr>
+            <td>{{ alert[0] }}</td>
+            <td>{{ alert[1] }}</td>
+            <td>{{ alert[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>User Activity Logs</h2>
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>Username</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for log in activity_logs %}
+        <tr>
+            <td>{{ log[0] }}</td>
+            <td>{{ log[1] }}</td>
+            <td>{{ log[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - SQL Injection Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            animation: fadeIn 1.5s ease;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            animation: slideIn 1s ease;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 250px;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        p {
+            color: red;
+            margin-top: 10px;
+        }
+        a {
+            margin-top: 20px;
+            display: block;
+            color: #007BFF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .info {
+            font-size: 1em;
+            color: #555;
+            max-width: 400px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0;}
+            to { opacity: 1;}
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+    <p>{{ message }}</p>
+    <div class="info">
+        <p>Try injecting SQL payloads like <code>' OR '1'='1</code> to bypass login.</p>
+    </div>
+    <a href="/">Back to Home</a>
+</body>
+</html>
